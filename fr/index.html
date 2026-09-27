@@ -135,7 +135,13 @@ h2{margin-bottom:5vh}
 .c3 .sigle{font-size:var(--fs-titre);font-weight:600;letter-spacing:-.04em;line-height:1}
 .c3 .nom{font-size:var(--fs-sm);font-weight:300;white-space:nowrap;opacity:.85}
 .c3 .dit{font-size:var(--fs-md);font-weight:600;line-height:1.35}
-.c3 .bas{margin-top:auto;font-size:var(--fs-md);font-style:italic}
+.c3 .bas{margin-top:1.4vh;font-size:var(--fs-md);font-style:italic}
+.c3 .frise{margin-top:auto;display:flex;align-items:center;gap:.7vw;color:inherit;text-decoration:none}
+.c3 .frise .pt{display:flex;flex-direction:column;line-height:1.15}
+.c3 .frise .pt b{font-size:var(--fs-md);font-weight:600}
+.c3 .frise .pt small{font-size:var(--fs-sm);font-weight:300;opacity:.75}
+.c3 .frise .trait{flex:0 0 2.6vw;height:2px;border-radius:2px;background:currentColor;opacity:.4}
+.c3 a.frise:hover .pt b{text-decoration:underline}
 .c3 .gagne b{font-weight:600}
 .c3.noir{background:var(--encre);color:#fff;border-color:var(--encre)}
 .c3.bleu{background:var(--bleu);color:#fff;border-color:var(--bleu)}
@@ -322,21 +328,24 @@ En cinq slides : ce que ces sigles veulent dire, pourquoi c'est maintenant, com
   <div class="s2v">
     <div class="cartes3" data-tw="définitions">
       <div class="c3">
-        <div class="haut"><span class="gauche"><span class="sigle">SEO</span><span class="annee">depuis 1997</span></span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
+        <div class="haut"><span class="sigle">SEO</span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
         <span class="nom">Search Engine Optimization</span>
         <span class="dit">« Être bien classé dans les liens de Google. »</span>
+        <div class="frise"><span class="pt"><b>1997</b><small>naissance du terme</small></span></div>
         <div class="bas"><span class="gagne">On gagne : <b>un clic</b></span></div>
       </div>
       <div class="c3 noir">
-        <div class="haut"><span class="gauche"><span class="sigle">AEO</span><span class="annee">depuis 2014</span></span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
+        <div class="haut"><span class="sigle">AEO</span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
         <span class="nom">Answer Engine Optimization</span>
         <span class="dit">« Être LA réponse affichée : Aperçu IA, extrait, assistant vocal. »</span>
+        <a class="frise" href="../assets/preuves/google-dates-aeo-geo.png" target="_blank" rel="noopener" title="Voir la source"><span class="pt"><b>2014</b><small>naissance</small></span><span class="trait"></span><span class="pt"><b>2024-25</b><small>grand public</small></span></a>
         <div class="bas"><span class="gagne">On gagne : <b>la réponse sans clic</b></span></div>
       </div>
       <div class="c3 bleu">
-        <div class="haut"><span class="gauche"><span class="sigle">GEO</span><span class="annee">depuis 2023</span></span><span class="lg-row"><img src="../assets/logo-chatgpt.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"><img src="../assets/logo-claude.svg" alt="Claude"><img src="../assets/logo-perplexity-icone.svg" alt="Perplexity"></span></div>
+        <div class="haut"><span class="sigle">GEO</span><span class="lg-row"><img src="../assets/logo-chatgpt.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"><img src="../assets/logo-claude.svg" alt="Claude"><img src="../assets/logo-perplexity-icone.svg" alt="Perplexity"></span></div>
         <span class="nom">Generative Engine Optimization</span>
         <span class="dit">« Être cité ou recommandé par une IA. »</span>
+        <a class="frise" href="../assets/preuves/google-dates-aeo-geo.png" target="_blank" rel="noopener" title="Voir la source"><span class="pt"><b>2023</b><small>naissance</small></span><span class="trait"></span><span class="pt"><b>2023-24</b><small>grand public</small></span></a>
         <div class="bas"><span class="gagne">On gagne : <b>une mention, un lien</b></span></div>
       </div>
     </div>
@@ -360,7 +369,7 @@ En cinq slides : ce que ces sigles veulent dire, pourquoi c'est maintenant, com
 Il y a trois sigles à bien distinguer. Le SEO, c'est ce qu'on voit en cours : être bien classé dans les liens de Google, pour obtenir un clic.
 L'AEO, pour Answer Engine Optimization, c'est devenir la réponse elle-même : l'Aperçu IA, l'extrait en haut de page, la réponse d'un assistant vocal. Sur la capture de gauche, Google répond directement à « c'est quoi le GEO », avant tous les liens.
 Le GEO, pour Generative Engine Optimization, c'est être cité ou recommandé par une IA comme ChatGPT ou Perplexity. À droite, Perplexity écrit sa réponse et cite ses sources, encadrées en rouge. Pour une marque, l'objectif est d'être l'une de ces sources.
-Et ce n'est pas une mode passagère. Le SEO existe depuis 1997. Depuis 2014, Google affiche directement la réponse en haut de la page, c'est le début de l'AEO. Dès 2015, Google utilise une IA, RankBrain, pour classer ses résultats. Et le terme GEO est né fin 2023, dans une étude de l'université de Princeton.
+Et ce n'est pas une mode passagère. Le SEO existe depuis 1997. Depuis 2014, Google affiche directement la réponse en haut de la page, c'est le début de l'AEO, même si le grand public ne le découvre vraiment qu'en 2024 avec les Aperçus IA. Dès 2015, Google utilise une IA, RankBrain, pour classer ses résultats. Et le terme GEO est né fin 2023, dans une étude de l'université de Princeton, au moment où ChatGPT devenait un réflexe pour tout le monde.
 On entend aussi AIO, LLMO ou AI SEO : ce sont des noms voisins, et en 2026 il n'existe pas encore de définition officielle qui les sépare.
 Voyons maintenant pourquoi ça compte déjà.</div>
 </section>
