@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — Slides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --encre:#0a0a0a; --fond:#f5f5f5; --carte:#ffffff;
+    --bleu:#1d9bf0; --vert:#008000; --rouge:#ff0000;
+    --bleu-doux:rgba(29,155,240,.1); --vert-doux:rgba(0,128,0,.1); --rouge-doux:rgba(255,0,0,.08);
+    --sourdine:rgba(10,10,10,.55); --tenu:rgba(10,10,10,.38);
+    --filet:#e4e4e2; --separateur:rgba(10,10,10,.28);
+    --t-titre:50px; --t-chiffre:30px; --t-texte:14px; --t-detail:12px;
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; padding:16px 24px 24px; min-height:100vh; display:flex; flex-direction:column;
+    font-family:"Plus Jakarta Sans", system-ui, sans-serif;
+    font-size:var(--t-texte); font-weight:400; line-height:1.5;
+    background:var(--fond); color:var(--encre);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1 {
+    font-size:var(--t-titre); font-weight:600; line-height:1; letter-spacing:-.035em;
+    margin:0; padding-bottom:16px; text-align:center;
+    border-bottom:1.5px solid var(--separateur);
+  }
+  h2 { font-size:var(--t-detail); font-weight:600; text-transform:uppercase; letter-spacing:.16em;
+       color:var(--sourdine); margin:0 0 12px; }
+
+  .haut { display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:stretch; }
+  .haut, body > section { padding-top:30px; padding-bottom:30px; border-bottom:1.5px solid var(--separateur); }
+  body > section:last-of-type { padding-bottom:0; border-bottom:0; flex:1; display:flex; flex-direction:column; }
+  body > section:last-of-type .bloc { flex:1; display:flex; flex-direction:column; }
+  body > section:last-of-type table { flex:1; }
+  .haut > section { padding:0; border:0; display:flex; flex-direction:column; min-width:0; }
+  .haut > section:last-child { border-left:1.5px solid var(--separateur); padding-left:30px; }
+  .bloc { border:1px solid var(--filet); border-radius:20px; padding:12px 14px; }
+  .haut > section:first-child .bloc { width:fit-content; }
+  .haut > section .bloc { display:flex; align-items:center; }
+  .rangee { display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+
+  /* Couleurs */
+  .couleurs { display:flex; flex-wrap:wrap; gap:0; border-radius:20px; overflow:hidden; }
+  .jeton { display:flex; align-items:center; justify-content:center; width:96px; height:88px; flex:0 0 auto; }
+  .jeton code { font-family:ui-monospace, Menlo, monospace; font-size:var(--t-detail); letter-spacing:-.02em; }
+
+  /* Typographie */
+  table { width:100%; border-collapse:collapse; }
+  th { text-align:left; font-size:var(--t-detail); font-weight:600; text-transform:uppercase;
+       letter-spacing:.16em; color:var(--sourdine); padding:0 14px 10px 0; border-bottom:1px solid var(--filet); }
+  td { padding:9px 14px 9px 0; border-bottom:1px solid var(--filet); vertical-align:middle; }
+  tr:last-child td { border-bottom:0; padding-bottom:0; }
+  td code { font-family:ui-monospace, Menlo, monospace; color:var(--sourdine); font-size:var(--t-detail); }
+
+  /* Composants */
+  .widget { background:var(--carte); border:1px solid var(--filet); border-radius:20px; padding:12px 16px; }
+  .chiffre { display:block; font-size:var(--t-chiffre); font-weight:500; letter-spacing:-.03em;
+             line-height:1; white-space:nowrap; }
+  .unite { display:block; margin-top:8px; font-size:var(--t-detail); font-weight:600;
+           color:var(--sourdine); }
+  .badge { display:inline-flex; align-items:center; border-radius:999px; padding:.4em .8em;
+           font-size:var(--t-detail); font-weight:600; text-transform:uppercase; letter-spacing:.1em;
+           white-space:nowrap; flex:none; }
+  .badge-bleu { background:var(--bleu-doux); color:var(--bleu); }
+  .badge-vert { background:var(--vert-doux); color:var(--vert); }
+  .badge-rouge { background:var(--rouge-doux); color:var(--rouge); }
+  .numero { font-size:var(--t-detail); font-weight:600; letter-spacing:.16em; color:var(--tenu); }
+  .pilule { display:inline-flex; gap:2px; padding:3px; border-radius:999px;
+            border:1px solid var(--filet); background:rgba(10,10,10,.05); }
+  .pilule span { padding:.5em .95em; border-radius:999px; font-size:var(--t-detail);
+                 font-weight:600; letter-spacing:.1em; color:var(--sourdine); }
+  .pilule .actif { background:var(--carte); color:var(--encre); box-shadow:0 1px 5px rgba(0,0,0,.18); }
+
+  @media (max-width:1000px) {
+    .haut { grid-template-columns:1fr; gap:30px; }
+    .haut > section:last-child { border-left:0; padding-left:0; padding-top:30px;
+                                 border-top:1.5px solid var(--separateur); }
+    .haut > section:first-child .bloc { width:100%; }
+  }
+  @media (max-width:900px) {
+    .jeton { width:20%; height:60px; }
+    table, tbody, tr, td { display:block; width:100%; }
+    thead { display:none; }
+    tr { border-bottom:1px solid var(--filet); padding:10px 0; }
+    tr:last-child { border-bottom:0; padding-bottom:0; }
+    td { border:0; padding:2px 0; }
+    td:first-child { font-weight:600; margin-bottom:4px; }
+    td[data-l]::before { content:attr(data-l) " · "; color:var(--sourdine); }
+  }
+  @media (max-width:520px) { :root { --t-titre:34px; } }
+</style>
+</head>
+<body>
+
+<h1>Design System</h1>
+
+<div class="haut">
+<section>
+  <h2>Couleurs</h2>
+  <div class="bloc">
+    <div class="couleurs">
+      <div class="jeton" style="background:#0a0a0a"><code style="color:#f5f5f5">#0A0A0A</code></div>
+      <div class="jeton" style="background:#f5f5f5"><code style="color:#0a0a0a">#F5F5F5</code></div>
+      <div class="jeton" style="background:#1d9bf0"><code style="color:#ffffff">#1D9BF0</code></div>
+      <div class="jeton" style="background:#008000"><code style="color:#ffffff">#008000</code></div>
+      <div class="jeton" style="background:#ff0000"><code style="color:#ffffff">#FF0000</code></div>
+    </div>
+  </div>
+</section>
+<section>
+  <h2>Composants</h2>
+  <div class="bloc">
+    <div class="rangee">
+      <span class="widget">
+        <span class="chiffre">15,5 M</span>
+        <span class="unite">Touchables 2025</span>
+      </span>
+      <span class="badge badge-bleu">Point fort</span>
+      <span class="badge badge-vert">Opportunité</span>
+      <span class="badge badge-rouge">Point faible</span>
+      <span class="pilule"><span class="actif">Monde</span><span>France</span></span>
+      <span class="numero">06 / 15</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<section>
+  <h2>Typographie — Plus Jakarta Sans</h2>
+  <div class="bloc">
+    <table>
+      <thead><tr>
+        <th style="width:170px">Niveau</th><th style="width:110px">Taille</th><th style="width:90px">Poids</th>
+        <th style="width:130px">Épaisseur</th><th style="width:430px">Usage</th><th>Aperçu</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>Détail</td><td data-l="Taille"><code>12 px</code></td><td data-l="Poids"><code>300</code></td><td data-l="Épaisseur">Light</td>
+          <td data-l="Usage">Sources, identifiants, précisions</td>
+          <td style="font-size:12px;font-weight:300">Cartographie de X</td>
+        </tr>
+        <tr>
+          <td>Texte courant</td><td data-l="Taille"><code>14 px</code></td><td data-l="Poids"><code>400</code></td><td data-l="Épaisseur">Regular</td>
+          <td data-l="Usage">Phrases, listes, cellules de tableau, corps des cartes</td>
+          <td style="font-size:14px;font-weight:400">Cartographie de X</td>
+        </tr>
+        <tr>
+          <td>Chiffre clé</td><td data-l="Taille"><code>30 px</code></td><td data-l="Poids"><code>500</code></td><td data-l="Épaisseur">Medium</td>
+          <td data-l="Usage">Chiffre des widgets</td>
+          <td style="font-size:30px;font-weight:500;letter-spacing:-.03em;line-height:1">Cartographie de X</td>
+        </tr>
+        <tr>
+          <td>Titre</td><td data-l="Taille"><code>50 px</code></td><td data-l="Poids"><code>600</code></td><td data-l="Épaisseur">Semi-bold</td>
+          <td data-l="Usage">Titre de slide, titre de couverture</td>
+          <td style="font-size:50px;font-weight:600;letter-spacing:-.035em;line-height:1">Cartographie de X</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</body>
+</html>

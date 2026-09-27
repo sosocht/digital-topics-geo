@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Digital topics · GEO</title>
+<meta name="description" content="SEO, AEO, GEO : le nouveau référencement qui émerge en 2026. Bonus Digital topics, R5.MDEE.12, IUT de Roubaix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+<style>
+/* Design System : .claude/skills/slides-design/ds.html, copie locale dans ../ds.html */
+:root{
+  --encre:#0a0a0a; --fond:#f5f5f5; --carte:#fff; --filet:#e4e4e2;
+  --bleu:#1d9bf0; --vert:#008000; --rouge:#ff0000;
+  --sourdine:rgba(10,10,10,.55); --tenu:rgba(10,10,10,.38);
+  --bleu-08:rgba(29,155,240,.08); --bleu-40:rgba(29,155,240,.4);
+  --fs-titre:clamp(1.9rem,3.9vw,3.3rem);
+  --fs-chiffre:clamp(22px,2.34vw,2.1rem);
+  --fs-md:clamp(14px,1.09vw,1.05rem);
+  --fs-sm:clamp(11px,.94vw,.84rem);
+  --sans:"Plus Jakarta Sans",system-ui,sans-serif;
+  --r:20px; --rail:6vh;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);font-size:var(--fs-md);font-weight:400;line-height:1.5;
+  color:var(--encre);background:var(--fond);scroll-snap-type:y mandatory;overflow-x:hidden}
+img{max-width:none}
+
+/* rail de sommaire */
+.rail{position:fixed;left:0;top:0;bottom:0;width:var(--rail);background:var(--carte);
+  border-right:1px solid var(--filet);display:flex;flex-direction:column;align-items:center;
+  padding:1.4vh 0;gap:.6vh;z-index:50}
+.rail .mark{width:4.4vh;height:4.4vh;margin:.6vh 0 .4vh;border-radius:1.2vh;background:var(--encre);color:#fff;
+  display:grid;place-items:center;font-size:1.3vh;font-weight:700;letter-spacing:.04em;text-decoration:none}
+.rail .liens{flex:1;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;padding:.8vh 0}
+.rail .liens a{width:3.6vh;height:3.6vh;display:grid;place-items:center;border-radius:1.1vh;background:var(--fond);border:1px solid var(--filet);
+  font-size:var(--fs-sm);font-weight:600;color:var(--sourdine);text-decoration:none;transition:.18s}
+.rail .liens a:hover{background:#e9e9e6;color:var(--encre)}
+.rail .liens a.on{color:#fff;background:var(--encre);border-color:var(--encre)}
+.rail .bar{width:.8vh;height:9vh;background:var(--filet);border-radius:2px;overflow:hidden}
+.rail .bar i{display:block;width:100%;background:var(--bleu);height:0}
+
+section{height:100vh;height:100svh;scroll-snap-align:start;scroll-snap-stop:always;
+  padding:9vh 2.6vw 7vh calc(var(--rail) + 2.6vw);display:flex;flex-direction:column;
+  justify-content:flex-start;border-top:1px solid var(--filet);position:relative;overflow:hidden}
+section:first-of-type{border-top:0}
+.num{position:absolute;bottom:2.6vh;right:2.6vw;font-size:var(--fs-sm);font-weight:600;letter-spacing:.16em;color:var(--tenu);z-index:3}
+h1,h2{font-size:var(--fs-titre);font-weight:600;letter-spacing:-.035em;line-height:1.04;margin:0 0 3vh}
+h3{font-size:var(--fs-md);font-weight:700;margin:0 0 .7em}
+strong,b{font-weight:600}
+.bleu{color:var(--bleu)} .vert{color:var(--vert)} .rouge{color:var(--rouge)}
+.pied{position:absolute;bottom:2.6vh;left:calc(var(--rail) + 2.6vw);right:10vw;font-size:var(--fs-sm);
+  font-weight:300;color:var(--tenu);z-index:3;margin:0}
+.pied img{height:1.2em;width:auto;vertical-align:-.22em;margin:0 .3em 0 .15em;border-radius:3px}
+.lg-i{position:absolute;top:2.9vh;right:2.6vw;height:3vh;width:auto;z-index:6;display:block}
+#s1 .lg-i{height:3.4vh}
+.manque{background:rgba(255,0,0,.1);color:var(--rouge);border-radius:6px;padding:0 .3em;font-weight:600}
+
+/* pilules et étiquettes */
+.chip{display:inline-flex;align-items:center;gap:.45em;border-radius:999px;padding:.3em .85em;font-size:var(--fs-sm);
+  font-weight:600;background:var(--carte);color:var(--encre);border:1px solid rgba(10,10,10,.28);white-space:nowrap}
+.chip.noir{background:var(--encre);color:#fff;border-color:var(--encre)}
+.chip.bleu{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+.chip.vert{background:#006900;color:#fff;border-color:#006900}
+.chip.rouge{background:#fff;color:var(--rouge);border-color:var(--rouge)}
+.chip img{height:1.3em;width:auto}
+.chips{display:flex;flex-wrap:wrap;gap:.5em}
+
+/* emplacement d'image à fournir */
+.ph{border:2px dashed var(--bleu-40);background:var(--bleu-08);border-radius:var(--r);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:1em;color:var(--bleu);min-height:0;min-width:0;overflow:hidden}
+.ph b{font-size:var(--fs-md);font-weight:700}
+.ph span{font-size:var(--fs-sm);color:var(--sourdine);margin-top:.35em;max-width:32ch}
+.ph .qui{margin-top:.8em;font-size:var(--fs-sm);font-weight:600;color:var(--bleu)}
+.cadre{border-radius:var(--r);overflow:hidden;border:1px solid var(--filet);background:#111;min-height:0;position:relative}
+.cadre img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ============ S1 · COUVERTURE ============ */
+#s1{background:radial-gradient(circle at 74% 46%,rgba(29,155,240,.18) 0%,rgba(29,155,240,.06) 38%,rgba(29,155,240,0) 62%),linear-gradient(180deg,#fff 0%,var(--fond) 100%);color:var(--encre);border-top:0;padding:0}
+#s1 .fond{position:absolute;inset:0;overflow:hidden}
+#s1 .fond img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+#s1 .voile{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.45) 0%,rgba(10,10,10,.62) 55%,rgba(10,10,10,.9) 100%)}
+.tw{position:absolute;left:var(--x);top:var(--y);width:var(--l,86%);transform:translate(-50%,-50%);margin:0;z-index:2;text-align:center}
+#s1 h1{font-size:clamp(3rem,7.4vw,6.8rem);font-weight:600;letter-spacing:-.045em;line-height:1;margin:0}
+#s1 .sub{margin:2.6vh auto 0;color:var(--sourdine);font-size:clamp(17px,1.62vw,1.5rem);line-height:1.4;max-width:60ch}
+#s1 .mention{font-size:var(--fs-sm);font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--bleu)}
+#s1 .meta{font-size:var(--fs-sm);font-weight:300;color:var(--sourdine);letter-spacing:.04em}
+#s1 .num{color:var(--tenu)}
+
+/* ============ rail en verre liquide (retours de Sofian du 26/09, repris du deck social media 03-01-10-plan-contenu) ============ */
+.rail{top:1.4vh;bottom:1.4vh;left:.9vh;border-radius:2.6vh;border:1px solid rgba(10,10,10,.08);
+  background:color-mix(in srgb,#fff 28%,transparent);-webkit-backdrop-filter:blur(1.5px) saturate(1.15);backdrop-filter:blur(1.5px) saturate(1.15);
+  box-shadow:inset 1px 1px 1px rgba(255,255,255,.6),0 8px 30px rgba(10,10,10,.12)}
+.rail .mark{width:3.6vh;height:3.6vh;margin:1.2vh 0 .4vh;border-radius:1.1vh;font-size:1.05vh}
+.rail .liens{flex:0 0 auto;justify-content:center;gap:1.6vh;margin:auto 0}
+.rail .liens a{background:rgba(255,255,255,.62)}
+.rail .bar{width:2vh;height:15vh;border-radius:999px;background:rgba(10,10,10,.14)}
+.rail .bar i{border-radius:999px}
+section{padding:8vh 2.6vw 7.5vh calc(var(--rail) + .9vh + 2.6vw)}
+.pied{left:calc(var(--rail) + .9vh + 2.6vw)}
+h2{margin-bottom:5vh}
+
+/* ============ deck GEO en 5 slides ============ */
+/* capture preuve : le cadre prend exactement le format de l'image, la pilule se pose en bas à droite */
+.preuve{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--filet);background:#fff;flex:0 0 auto}
+.preuve img{display:block;width:100%;height:auto}
+.preuve .chip{position:absolute;right:1vw;bottom:1.4vh}
+.lg-row{display:flex;gap:.45em;align-items:center}
+.lg-row img{height:1.5em;width:auto;display:block}
+
+/* S1 · couverture : fond encre, illustration à droite (1536 px, nette), titre à gauche */
+#s1 .illu{position:absolute;right:2vw;top:45%;transform:translateY(-50%);height:58vh;width:auto;z-index:1}
+#s1 .illu img{height:100%;width:auto;display:block}
+#s1 .halo{display:none}
+#s1 .tw.gauche{text-align:left}
+#s1 .tw.gauche h1{font-size:clamp(2.6rem,6vw,5.6rem)}
+#s1 .tw.gauche .sub{margin-left:0}
+
+/* S2 · trois cartes de définition, puis deux vraies réponses et les autres sigles */
+.s2v{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) 12vw;grid-template-rows:minmax(0,1fr) auto;gap:1.8vh 1.1vw}
+.s2v .cartes3{grid-column:1;grid-row:1}
+.s2v .exemples{grid-column:1;grid-row:2}
+.s2v .sigles{grid-column:2;grid-row:1 / 3}
+.cartes3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1vw}
+.c3{border-radius:var(--r);padding:1.8vh 1.3vw;display:flex;flex-direction:column;gap:.9vh;background:var(--carte);border:1px solid var(--filet)}
+.c3 .haut{display:flex;justify-content:space-between;align-items:flex-start;gap:.8vw}
+.c3 .sigle{font-size:var(--fs-titre);font-weight:600;letter-spacing:-.04em;line-height:1}
+.c3 .nom{font-size:var(--fs-sm);font-weight:300;white-space:nowrap;opacity:.85}
+.c3 .dit{font-size:var(--fs-md);font-weight:600;line-height:1.35}
+.c3 .bas{margin-top:auto;font-size:var(--fs-md);font-style:italic}
+.c3 .gagne b{font-weight:600}
+.c3.noir{background:var(--encre);color:#fff;border-color:var(--encre)}
+.c3.bleu{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+.c3.noir .lg-row img,.c3.bleu .lg-row img{background:#fff;border-radius:6px;padding:2px}
+.exemples{display:grid;grid-template-columns:1.676fr 1.66fr;gap:1.1vw;min-height:0}
+.exemples .preuve img{width:100%;height:auto}
+.sigles{border-radius:var(--r);border:1px solid var(--filet);background:var(--carte);padding:1.8vh 1.1vw;display:flex;flex-direction:column;justify-content:center;gap:1.2vh}
+.sigles b{font-size:var(--fs-md);font-weight:600}
+.sigles ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2.2vh}
+.sigles li{display:flex;flex-direction:column;align-items:flex-start;gap:.5vh}
+.sigles small{font-size:var(--fs-sm);font-weight:300;color:var(--tenu);line-height:1.3}
+
+/* médaillon zoom : l'encadré trop petit, agrandi et posé sur la capture (règle de Sofian du 26/09) */
+.zoom{position:absolute;border:1px solid rgba(10,10,10,.18);border-radius:10px;background-repeat:no-repeat;background-color:#fff;box-shadow:0 10px 28px rgba(10,10,10,.38);z-index:3}
+
+/* S3 · cinq widgets : parts de trafic (bloc noir), trois chiffres, l'arrivée en France */
+.s3v{flex:1;min-height:0;display:grid;grid-template-columns:1.12fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:1.2vw}
+.w{border-radius:var(--r);padding:2vh 1.3vw;display:flex;flex-direction:column;gap:1vh;background:var(--carte);border:1px solid var(--filet);min-height:0}
+.w .lg-row img{height:1.9em}
+.w b.gros{font-size:var(--fs-titre);font-weight:600;letter-spacing:-.045em;line-height:1;margin-top:auto}
+.w .dit{font-size:var(--fs-md);line-height:1.35}
+.w .plus{font-size:var(--fs-md);font-weight:600}
+.w .src{font-size:var(--fs-sm);font-weight:300;color:var(--tenu);margin-top:auto}
+.w.noir{background:var(--encre);border-color:var(--encre);color:#fff;grid-row:span 2}
+.w.noir .src{color:rgba(255,255,255,.55)}
+.w.bleu{background:var(--bleu);border-color:var(--bleu);color:#fff}
+.w.bleu .src{color:rgba(255,255,255,.75)}
+.w.bleu .lg-row img,.w.noir .lg-row img{background:#fff;border-radius:6px;padding:2px}
+.w .titre-w{font-size:var(--fs-md);font-weight:600}
+.parts{display:flex;flex-direction:column;justify-content:space-evenly;flex:1;gap:1vh}
+.part{display:grid;grid-template-columns:2em 5.2em 1fr 3.6em;align-items:center;gap:.7vw;font-size:var(--fs-md)}
+.part img{height:1.7em;width:1.7em;object-fit:contain;background:#fff;border-radius:7px;padding:3px}
+.part .barre{height:1.3vh;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
+.part .barre i{display:block;height:100%;width:var(--v);border-radius:999px;background:var(--bleu)}
+.part.un .barre i{background:#fff}
+.part em{font-style:normal;font-weight:600;text-align:right}
+.w.image{padding:0;overflow:hidden;position:relative;background:#fff}
+.w.image img.cap{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.w.image .chip{position:absolute;right:.8vw;bottom:1.2vh}
+
+/* S4 · tableau d'audit du cours, colonne GEO et effet mesuré en gros chiffres ; deux exemples réels */
+.s4v{flex:1;min-height:0;display:grid;grid-template-columns:1.9fr 1fr;gap:1.4vw}
+.audit{display:grid;grid-template-columns:1.05fr 1fr 1.75fr .95fr;grid-template-rows:auto repeat(6,1fr);
+  border:1px solid var(--filet);border-radius:var(--r);overflow:hidden;background:var(--carte);font-size:var(--fs-md);line-height:1.3;min-height:0}
+.audit > div{padding:.7vh .8vw;display:flex;align-items:center;border-top:1px solid var(--filet)}
+.audit .hd{border-top:0;justify-content:center;text-align:center;font-weight:600;padding:1.2vh .8vw}
+.audit .hd.crit{background:var(--fond);color:var(--encre)}
+.audit .hd.seo{background:rgba(10,10,10,.08);color:var(--sourdine)}
+.audit .hd.geo{background:var(--bleu);color:#fff}
+.audit .hd.effet{background:var(--vert);color:#fff}
+.audit .crit{gap:.6vw;font-weight:600;background:var(--fond)}
+.audit .crit svg{width:1.6em;height:1.6em;flex:0 0 auto;fill:none;stroke:var(--bleu);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.audit .seo{color:var(--sourdine);background:rgba(10,10,10,.02)}
+.audit div.seo,.audit div.geo{display:block;align-content:center}
+.audit .geo{background:rgba(29,155,240,.05)}
+.audit .geo b{font-weight:600;color:var(--bleu)}
+.audit .effet{flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:.2vh}
+.audit .effet b{font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--vert)}
+.audit .effet.rouge b{color:var(--rouge)}
+.audit .effet small{font-size:var(--fs-sm);font-weight:300;color:var(--tenu);line-height:1.25}
+.reels{display:grid;grid-template-rows:auto 1fr;gap:1.2vh;min-height:0}
+.reel{border-radius:var(--r);border:1px solid var(--filet);background:var(--carte);padding:1.4vh 1vw;display:flex;flex-direction:column;gap:.8vh;min-height:0}
+.reel .titre-w{font-size:var(--fs-md);font-weight:600}
+.reel .preuve{border-radius:12px}
+.reel .entre{font-size:var(--fs-sm);font-weight:300;color:var(--tenu);text-align:center}
+.reel .src{font-size:var(--fs-sm);font-weight:300;color:var(--tenu);margin-top:auto}
+.reel.noir{background:var(--encre);border-color:var(--encre);color:#fff}
+.reel.noir .src{color:rgba(255,255,255,.55)}
+.reel .expl{font-size:var(--fs-sm);color:rgba(255,255,255,.75);line-height:1.35}
+.reel .conclu{font-size:var(--fs-md);font-weight:600}
+.reel.noir .titre-w{font-size:var(--fs-chiffre);letter-spacing:-.02em;line-height:1.1}
+.duel{display:flex;flex-direction:column;gap:.9vh;justify-content:center}
+.duel .part{grid-template-columns:5.6em 1fr 3.4em}
+.duel .lg{background:#fff;border-radius:8px;height:2.3em;display:flex;align-items:center;justify-content:center;padding:.3em .5em}
+.duel .lg img{height:100%;width:auto;max-width:100%;display:block}
+
+/* S5 · profil + carte, puis les trois vidéos */
+.s5g{flex:1;min-height:0;display:grid;grid-template-columns:1.32fr 1fr;grid-template-rows:auto minmax(0,1fr);gap:1.8vh 1.6vw}
+.carte-sturm{border-radius:var(--r);background:var(--encre);color:#fff;padding:2.2vh 1.6vw;display:flex;flex-direction:column;justify-content:center;gap:1.2vh}
+.carte-sturm .nom{font-size:var(--fs-chiffre);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.carte-sturm .qui{font-size:var(--fs-sm);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.65)}
+.carte-sturm ul{margin:0;padding-left:1.1em;display:grid;gap:.5vh;font-size:var(--fs-md)}
+.videos{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2vw;min-height:0}
+.video{display:grid;grid-template-columns:auto 1fr;gap:1.1vw;align-items:stretch;background:var(--carte);border:1px solid var(--filet);border-radius:var(--r);
+  padding:1.1vh;color:inherit;text-decoration:none;min-height:0}
+.video:hover{border-color:var(--bleu)}
+.video img.mini{height:100%;aspect-ratio:3/4;width:auto;object-fit:cover;border-radius:14px;display:block;min-height:0}
+.video .txt{display:flex;flex-direction:column;justify-content:flex-start;padding:.8vh .4vw .6vh 0;gap:1vh}
+.video .voir{margin-top:auto}
+.video .txt b{font-size:var(--fs-md);font-weight:600;line-height:1.35}
+.video .txt span{font-size:var(--fs-md);color:var(--sourdine);line-height:1.4}
+.video .voir{display:flex;align-items:center;gap:.5em;font-size:var(--fs-sm);font-weight:600;color:var(--encre)}
+.video .voir img{height:1.5em;width:auto}
+/* S5 · profil cliquable et lecteur vidéo en grand (fichiers téléchargés dans assets/videos/) */
+a.lien-profil{display:block;color:inherit;transition:border-color .2s}
+a.lien-profil:hover{border-color:var(--bleu)}
+a.lien-profil .ouvrir{position:absolute;top:1.4vh;right:.9vw;width:2.2em;height:2.2em;border-radius:999px;background:#fff;border:1px solid var(--filet);
+  display:grid;place-items:center;font-size:var(--fs-md);font-weight:600;color:var(--encre);box-shadow:0 2px 8px rgba(10,10,10,.12)}
+.video{position:relative;cursor:pointer}
+.video .play{position:absolute;left:calc(1.1vh + 3.2vw);top:50%;transform:translate(-50%,-50%);width:3.2em;height:3.2em;border-radius:999px;background:rgba(255,255,255,.92);
+  box-shadow:0 4px 14px rgba(10,10,10,.35);z-index:2;pointer-events:none}
+.video .play::after{content:"";position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:.62em 0 .62em 1em;border-color:transparent transparent transparent var(--encre)}
+.lecteur{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;background:rgba(10,10,10,.86)}
+.lecteur.on{display:flex}
+.lecteur video{height:90vh;max-width:92vw;border-radius:var(--r);background:#000;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lecteur .fermer{position:absolute;top:3vh;right:3vw;width:2.6em;height:2.6em;border-radius:999px;border:0;background:#fff;color:var(--encre);font:600 1.2rem var(--sans);cursor:pointer}
+@media print{.lecteur{display:none!important}}
+
+/* notes orateur, touche N */
+.notes{display:none;position:fixed;left:var(--rail);right:0;bottom:0;background:var(--encre);
+  color:#fff;padding:1.6vh 4vw;font-size:var(--fs-sm);line-height:1.55;max-height:34vh;overflow:auto;z-index:40;cursor:text;outline:0;white-space:pre-line}
+body.notesvues section.ici .notes{display:block}
+.notes:focus{box-shadow:inset 0 3px 0 var(--bleu)}
+.notes::after{content:attr(data-aide);display:block;margin-top:.7em;font-size:11px;color:rgba(255,255,255,.45);user-select:none}
+.toast{position:fixed;left:50%;bottom:3vh;transform:translateX(-50%);background:var(--bleu);color:#fff;border-radius:999px;padding:.5em 1.2em;font-size:13px;font-weight:600;z-index:95;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:1}
+
+/* mode réglage, touche T */
+body.reglage [data-tw]{outline:1px dashed rgba(29,155,240,.75);outline-offset:1px;cursor:grab}
+body.reglage [data-tw]:hover{outline:1.5px solid var(--bleu)}
+body.reglage [data-tw].vise{outline:2.5px solid var(--bleu)}
+.panneau{display:none;position:fixed;right:16px;top:16px;z-index:90;max-height:78vh;overflow:auto;background:var(--encre);color:#e4e9eb;
+  border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px 16px;font-size:12px;font-weight:300;line-height:1.6;width:360px}
+.panneau.gauche{right:auto;left:calc(var(--rail) + 16px)}
+body.reglage .panneau{display:block}
+.panneau b{font-weight:600;color:#fff}
+.panneau .l{display:flex;justify-content:space-between;gap:14px;font-family:ui-monospace,Menlo,monospace;cursor:pointer;padding:1px 4px;border-radius:6px}
+.panneau .l:hover{background:rgba(255,255,255,.08)}
+.panneau .l span:last-child{text-align:right;color:rgba(255,255,255,.62)}
+.panneau .l.vise{color:#7fcbff;background:rgba(29,155,240,.16)}
+.panneau .outils-r{margin:8px 0;padding:8px 0;border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);display:flex;flex-direction:column;gap:5px}
+.panneau .outils-r > div{display:flex;align-items:center;flex-wrap:wrap;gap:5px}
+.panneau .outils-r span{min-width:92px;color:rgba(255,255,255,.7)}
+.panneau button{font:inherit;font-size:12px;font-weight:600;background:#232323;color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:2px 9px;cursor:pointer}
+.panneau button:hover{border-color:var(--bleu)}
+.panneau button.on{background:var(--bleu);border-color:var(--bleu)}
+.panneau .aide{margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.62)}
+
+@media print{
+  @page{size:1280px 720px;margin:0}
+  :root{--rail:0px}
+  .notes,.rail,.panneau{display:none!important}
+  html,body{scroll-snap-type:none}
+  section{break-inside:avoid;page-break-after:always}
+  section:last-of-type{page-break-after:auto}
+  [data-tw]{outline:0!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<nav class="rail" aria-label="Sommaire">
+  <a class="mark" href="#s1" title="Aller à la couverture">GEO</a>
+  <div class="liens">
+  <a href="#s1" class="on">1</a><a href="#s2">2</a><a href="#s3">3</a><a href="#s4">4</a><a href="#s5">5</a>
+  </div>
+  <div class="bar"><i></i></div>
+</nav>
+<div class="lecteur" id="lecteur" aria-hidden="true"><video controls playsinline preload="none"></video><button class="fermer" type="button" aria-label="Fermer la vidéo">✕</button></div>
+<div class="panneau" id="panneau"></div>
+
+<!-- ============ 1 · COUVERTURE ============ -->
+<!-- S1 : image choisie par Sofian (Pinterest, original 1536 px), titre à gauche car le sujet de l'image est à droite -->
+<section id="s1">
+  <div class="halo" aria-hidden="true"></div>
+  <div class="illu" data-tw="image de fond"><img src="../assets/cover-ia-google.png" alt="Illustration : un robot IA montre l'Aperçu IA dans une page de recherche Google"></div>
+  <div class="tw gauche" data-tw="titre" style="--x:27%;--y:45%;--l:40%">
+    <h1>Digital topics</h1>
+    <p class="sub" data-tw="description">SEO, AEO, GEO : le nouveau référencement<br>qui émerge en 2026</p>
+  </div>
+  <p class="mention tw" data-tw="mention" style="--x:50%;--y:90.6%;--l:86%">R5.MDEE.12 · Référencement · M. Igor Perez · Bonus « Digital topics »</p>
+  <p class="meta tw" data-tw="auteurs" style="--x:50%;--y:94.4%;--l:86%">Sofian Chtioui · BUT3 MDEE · IUT de Roubaix · 26/09/2026</p>
+  <div class="num">1 / 5</div>
+  <div class="notes">Bonjour à tous. Pour le bonus « Digital topics », j'ai choisi de parler de l'AEO et du GEO plutôt que d'un logiciel de référencement. C'est un sujet qui m'intéresse beaucoup, et je pense qu'il va transformer notre futur métier.
+Concrètement, le référencement ne consiste plus seulement à apparaître dans les liens de Google. Il faut aussi devenir la réponse que donne une IA, et être cité par elle.
+En cinq slides : ce que ces sigles veulent dire, pourquoi c'est maintenant, comment on s'y prend avec l'audit vu en cours, et qui suivre pour rester à jour.</div>
+</section>
+
+<!-- ============ 2 · SEO, AEO, GEO ============ -->
+<!-- S2 (réf. : trio carte blanche / carte noire / carte bleue, BriskPay « Made for You », puis rangée de vraies captures) -->
+<section id="s2">
+  <h2 data-tw="titre">SEO, AEO, GEO : quelle différence ?</h2>
+  <div class="s2v">
+    <div class="cartes3" data-tw="définitions">
+      <div class="c3">
+        <div class="haut"><span class="sigle">SEO</span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
+        <span class="nom">Search Engine Optimization</span>
+        <span class="dit">« Être bien classé dans les liens de Google. »</span>
+        <div class="bas"><span class="gagne">On gagne : <b>un clic</b></span></div>
+      </div>
+      <div class="c3 noir">
+        <div class="haut"><span class="sigle">AEO</span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
+        <span class="nom">Answer Engine Optimization</span>
+        <span class="dit">« Être LA réponse affichée : Aperçu IA, extrait, assistant vocal. »</span>
+        <div class="bas"><span class="gagne">On gagne : <b>la réponse sans clic</b></span></div>
+      </div>
+      <div class="c3 bleu">
+        <div class="haut"><span class="sigle">GEO</span><span class="lg-row"><img src="../assets/logo-chatgpt.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"><img src="../assets/logo-claude.svg" alt="Claude"><img src="../assets/logo-perplexity-icone.svg" alt="Perplexity"></span></div>
+        <span class="nom">Generative Engine Optimization</span>
+        <span class="dit">« Être cité ou recommandé par une IA. »</span>
+        <div class="bas"><span class="gagne">On gagne : <b>une mention, un lien</b></span></div>
+      </div>
+    </div>
+    <div class="sigles" data-tw="autres sigles">
+      <b>Autres termes</b>
+      <ul>
+        <li><span class="chip">AIO</span><small>Artificial Intelligence Optimization</small></li>
+        <li><span class="chip">LLMO</span><small>Large Language Model Optimization</small></li>
+        <li><span class="chip">AI SEO</span><small>le SEO pensé pour les IA</small></li>
+        <li><span class="chip">GSO</span><small>Global Search Optimization</small></li>
+      </ul>
+    </div>
+    <div class="exemples">
+      <div class="preuve" data-tw="exemple AEO"><img src="../assets/preuves/google-geo-sources.png" alt="Google : l'Aperçu IA répond à « c'est quoi le GEO », ses sources encadrées en rouge, puis le premier lien classique"><span class="zoom" style="left:23.5%;top:33.5%;width:30%;aspect-ratio:102/22;background-image:url(../assets/preuves/google-geo-sources.png);background-size:1117.7% auto;background-position:14.55% 38.6%"></span><span class="chip noir">AEO : Google répond lui-même</span></div>
+      <div class="preuve" data-tw="exemple GEO"><img src="../assets/preuves/perplexity-geo.png" alt="Perplexity répond à « c'est quoi le GEO » et cite ses sources, encadrées en rouge"><span class="zoom" style="left:29%;top:52%;width:34%;aspect-ratio:128/19;background-image:url(../assets/preuves/perplexity-geo.png);background-size:603.1% auto;background-position:75.77% 47.76%"></span><span class="chip bleu">GEO : l'IA cite ses sources</span></div>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Wikipédia, « Generative engine optimization » ; Frédéric Gonzalo ; Google et Perplexity, recherche « c'est quoi le GEO en référencement », (consulté le 26/09/2026)</p>
+  <div class="num">2 / 5</div>
+  <div class="notes">Est-ce que quelqu'un a déjà entendu parler du GEO ?
+Il y a trois sigles à bien distinguer. Le SEO, c'est ce qu'on voit en cours : être bien classé dans les liens de Google, pour obtenir un clic.
+L'AEO, pour Answer Engine Optimization, c'est devenir la réponse elle-même : l'Aperçu IA, l'extrait en haut de page, la réponse d'un assistant vocal. Sur la capture de gauche, Google répond directement à « c'est quoi le GEO », avant tous les liens.
+Le GEO, pour Generative Engine Optimization, c'est être cité ou recommandé par une IA comme ChatGPT ou Perplexity. À droite, Perplexity écrit sa réponse et cite ses sources, encadrées en rouge. Pour une marque, l'objectif est d'être l'une de ces sources.
+On entend aussi AIO, LLMO ou AI SEO : ce sont des noms voisins, et en 2026 il n'existe pas encore de définition officielle qui les sépare.
+Voyons maintenant pourquoi ça compte déjà.</div>
+</section>
+
+<!-- ============ 3 · LES USAGES ============ -->
+<!-- S3 (réf. : « Results & Benefits » : carte noire haute + blocs de couleur, et une vraie capture) -->
+<section id="s3">
+  <h2 data-tw="titre">Moins de clics, plus de réponses d'IA</h2>
+  <div class="s3v">
+    <div class="w noir" data-tw="parts de trafic">
+      <span class="titre-w">Qui se partage le trafic des IA</span>
+      <div class="parts">
+        <div class="part un"><img src="../assets/logo-chatgpt.svg" alt=""><span>ChatGPT</span><span class="barre"><i style="--v:100%"></i></span><em>55,5 %</em></div>
+        <div class="part"><img src="../assets/logo-gemini.svg" alt=""><span>Gemini</span><span class="barre"><i style="--v:46.1%"></i></span><em>25,6 %</em></div>
+        <div class="part"><img src="../assets/logo-claude.svg" alt=""><span>Claude</span><span class="barre"><i style="--v:16.8%"></i></span><em>9,3 %</em></div>
+        <div class="part"><img src="../assets/logo-deepseek.svg" alt=""><span>DeepSeek</span><span class="barre"><i style="--v:6.1%"></i></span><em>3,4 %</em></div>
+        <div class="part"><img src="../assets/logo-grok.svg" alt=""><span>Grok</span><span class="barre"><i style="--v:4.3%"></i></span><em>2,4 %</em></div>
+      </div>
+      <span class="src">Similarweb, trafic web mondial des IA, août 2026</span>
+    </div>
+    <div class="w" data-tw="ChatGPT">
+      <span class="lg-row"><img src="../assets/logo-chatgpt.svg" alt="ChatGPT"></span>
+      <b class="gros">900 M</b>
+      <span class="dit">utilisateurs de ChatGPT chaque semaine</span>
+      <span class="plus">400 M un an plus tôt</span>
+      <span class="src">OpenAI, février 2026 et février 2025</span>
+    </div>
+    <div class="w bleu" data-tw="zéro clic">
+      <span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span>
+      <b class="gros">68 %</b>
+      <span class="dit">des recherches Google finissent sans clic (États‑Unis)</span>
+      <span class="plus">93 % dans le Mode IA</span>
+      <span class="src">Similarweb via SparkToro, juin 2026 ; Semrush, sept. 2025</span>
+    </div>
+    <div class="w" data-tw="France">
+      <span class="lg-row"><img src="../assets/logo-chatgpt.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"></span>
+      <b class="gros">48 %</b>
+      <span class="dit">des Français utilisent l'IA générative</span>
+      <span class="plus">85 % des 18-24 ans</span>
+      <span class="src">Arcep, Baromètre du numérique, février 2026</span>
+    </div>
+    <div class="w image" data-tw="arrivée en France"><img class="cap" src="../assets/preuves/abondance-france.png?v=3" alt="Abondance, 22/07/2026 : Google lance officiellement les AI Overviews en France, titre et date encadrés en rouge"><span class="zoom" style="left:2.5%;top:71.5%;width:46%;aspect-ratio:180/32;background-image:url(../assets/preuves/abondance-france.png?v=3);background-size:555.6% auto;background-position:5.85% 67.86%"></span><span class="chip bleu">En France depuis le 22/07/2026</span></div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Similarweb ; OpenAI ; SparkToro ; Semrush ; Arcep, Baromètre du numérique 2026 ; Abondance, 22/07/2026, (consulté le 26/09/2026)</p>
+  <div class="num">3 / 5</div>
+  <div class="notes">Pourquoi en parler maintenant ? Parce que les usages ont déjà changé.
+D'abord, ChatGPT n'est plus seul. Il garde un peu plus de la moitié du trafic des IA, mais Gemini, Claude, DeepSeek et Grok montent vite. Autrement dit, une marque doit être visible sur plusieurs IA, pas sur une seule.
+Ensuite, on clique de moins en moins : aux États-Unis, plus de deux recherches Google sur trois se terminent sans visite de site, et c'est presque toutes dans le Mode IA.
+En France, près d'un Français sur deux utilise déjà l'IA générative, et presque tous les 18-24 ans, donc notre génération.
+Et surtout, depuis le 22 juillet, Google affiche ses Aperçus IA en France. Le sujet n'est plus américain, il est chez nous.
+Alors, concrètement, comment on s'y prend ?</div>
+</section>
+
+<!-- ============ 4 · CONCRÈTEMENT ============ -->
+<!-- S4 (réf. : tableau d'audit du cours, support des séances 1 et 2, colonne GEO ajoutée ; exemples réels à droite) -->
+<section id="s4">
+  <h2 data-tw="titre">Concrètement : l'audit du cours, version GEO</h2>
+  <div class="s4v">
+    <div class="audit" data-tw="tableau d'audit">
+      <div class="hd crit">Critère du cours</div><div class="hd seo">Dans le cours (SEO)</div><div class="hd geo">Version GEO : ce qu'on fait</div><div class="hd effet">Effet mesuré</div>
+
+      <div class="crit"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="11" rx="3"/><path d="M12 7V4M9 12h.01M15 12h.01M9.5 15h5"/></svg>Technique</div>
+      <div class="seo">Sitemap, robots.txt pour Googlebot</div>
+      <div class="geo">Laisser entrer les <b>robots des IA</b> dans le robots.txt</div>
+      <div class="effet rouge"><b>Invisible</b><small>sinon, Natural-net</small></div>
+
+      <div class="crit"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M10 11h5M10 15h5"/></svg>Contenus</div>
+      <div class="seo">Mots-clés, Title, H1 à H6</div>
+      <div class="geo">Une <b>question en intertitre</b>, la réponse dans les 2 premières phrases</div>
+      <div class="effet"><b>44 %</b><small>des citations dans le 1er tiers, Growth Memo</small></div>
+
+      <div class="crit"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16M10 10v9"/></svg>Structure</div>
+      <div class="seo">Balises, attributs ALT</div>
+      <div class="geo"><b>Tableaux, listes, FAQ</b> et balisage Schema.org</div>
+      <div class="effet"><b>+25,7 %</b><small>de citations avec 3 tableaux, AirOps</small></div>
+
+      <div class="crit"><svg viewBox="0 0 24 24"><path d="M5 20V11M12 20V5M19 20v-6"/></svg>Preuves</div>
+      <div class="seo">Fraîcheur des contenus</div>
+      <div class="geo"><b>Chiffres sourcés</b>, citations d'experts, dates à jour</div>
+      <div class="effet"><b>+40 %</b><small>de visibilité, Princeton</small></div>
+
+      <div class="crit"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>Popularité</div>
+      <div class="seo">Netlinking, backlinks</div>
+      <div class="geo">Être <b>mentionné</b> sur des sources fiables : presse, forums, LinkedIn</div>
+      <div class="effet"><b>N°1</b><small>LinkedIn, domaine le plus cité, Profound</small></div>
+
+      <div class="crit"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M16 16l4 4"/></svg>Suivi</div>
+      <div class="seo">Positions, Search Console</div>
+      <div class="geo">Poser <b>les questions des clients</b> aux IA, compter les citations</div>
+      <div class="effet"><b>×8</b><small>Matmut contre AXA, ci-contre</small></div>
+    </div>
+    <div class="reels">
+      <div class="reel" data-tw="exemple Natural-net">
+        <span class="titre-w">Exemple réel : la page citée par Google</span>
+        <div class="preuve"><img src="../assets/preuves/naturalnet-question.png" alt="Natural-net : intertitre « Qu'est-ce que le référencement GEO ? », encadré en rouge"></div>
+        <span class="entre">puis, sous l'infographie, la réponse</span>
+        <div class="preuve"><img src="../assets/preuves/naturalnet-definition.png" alt="Natural-net : la définition du GEO en deux phrases, encadrée en rouge"></div>
+              </div>
+      <div class="reel noir" data-tw="Matmut contre AXA">
+        <span class="titre-w">Leader ≠ cité par l'IA</span>
+        <span class="expl">Citations dans ChatGPT · 4 400 questions sur l'assurance</span>
+        <div class="duel">
+          <div class="part un"><span class="lg"><img src="../assets/logo-matmut.svg" alt="Matmut"></span><span class="barre"><i style="--v:100%"></i></span><em>1 672</em></div>
+          <div class="part"><span class="lg"><img src="../assets/logo-axa.svg" alt="AXA"></span><span class="barre"><i style="--v:12.1%"></i></span><em>203</em></div>
+        </div>
+        <span class="conclu">AXA, n°1 mondial : 8 fois moins cité</span>
+        <span class="src">Ahrefs Brand Radar, via Natural-net, 2026</span>
+      </div>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Sources : Igor Perez, support des séances 1 et 2 ; Natural-net ; Growth Memo ; AirOps ; Princeton (KDD 2024) ; Profound ; Ahrefs, (consulté le 26/09/2026)</p>
+  <div class="num">4 / 5</div>
+  <div class="notes">Concrètement, j'ai repris l'audit SEO vu en cours et j'ai ajouté une colonne GEO.
+Côté technique, le robots.txt qu'on a vu doit aussi laisser entrer les robots des IA : s'il les bloque, le site est invisible pour ChatGPT ou Claude.
+Côté contenus, on met une vraie question en intertitre, et la réponse tout de suite : près de la moitié des citations viennent du début du texte. On ajoute des tableaux, des listes, une FAQ, et des chiffres sourcés : l'étude de Princeton, qui a créé le terme GEO, mesure jusqu'à 40 % de visibilité en plus.
+Côté popularité, les backlinks ne suffisent plus : il faut que la marque soit mentionnée dans la presse ou sur les forums.
+À droite, deux exemples réels. La page de Natural-net, citée par Google sur la slide 2, pose la question en intertitre et répond en deux phrases. Et sur ChatGPT, la Matmut est citée huit fois plus qu'AXA : la taille de l'entreprise ne suffit pas, c'est le travail GEO qui compte.
+Pour finir, qui suivre pour rester à jour ?</div>
+</section>
+
+<!-- ============ 5 · POUR SUIVRE ============ -->
+<!-- S5 (réf. : « Welcome », Velocity Club : grande image + carte noire, rangée de cartes en dessous) -->
+<section id="s5">
+  <h2 data-tw="titre">Pour suivre le sujet : Edward Sturm</h2>
+  <div class="s5g">
+    <a class="preuve lien-profil" data-tw="preuve profil" href="https://www.instagram.com/edward.builds/" target="_blank" rel="noopener" title="Ouvrir le compte Instagram d'Edward Sturm"><img src="../assets/preuves/ig-sturm-profil.png" alt="Profil Instagram d'Edward Sturm, @edward.builds : 340 k followers, encadré en rouge"><span class="ouvrir" aria-hidden="true">↗</span></a>
+    <div class="carte-sturm" data-tw="Edward Sturm">
+      <span class="qui">Consultant SEO · 340 000 abonnés · en anglais</span>
+      <span class="nom">@edward.builds</span>
+      <ul><li>Astuces SEO et IA peu connues</li><li>Nouveautés de Google dès leur sortie</li><li>Vidéos d'une minute, très concrètes</li></ul>
+    </div>
+    <div class="videos" data-tw="vidéos">
+      <a class="video" href="https://www.instagram.com/reel/DdSK6GZvi_z/" target="_blank" rel="noopener" data-video="../assets/videos/ig-video-intro.mp4"><span class="play" aria-hidden="true"></span><img class="mini" src="../assets/ig-video-intro.png" alt="Vidéo : 44.2% of AI citations come from the intro of your content">
+        <span class="txt"><b>44,2 % des citations d'IA viennent de l'introduction</b><span>Analyse de 18 000 citations</span><span class="voir"><img src="../assets/logo-instagram.svg" alt="">Lire la vidéo</span></span></a>
+      <a class="video" href="https://www.instagram.com/reel/DdsLYSUPwGQ/" target="_blank" rel="noopener" data-video="../assets/videos/ig-video-dooley.mp4"><span class="play" aria-hidden="true"></span><img class="mini" src="../assets/ig-video-dooley.png" alt="Vidéo : The AI Overview said James Dooley citing his $6 press release">
+        <span class="txt"><b>Un communiqué à 6 $ cité par l'Aperçu IA de Google</b><span>« Roi de l'AEO » en quelques heures</span><span class="voir"><img src="../assets/logo-instagram.svg" alt="">Lire la vidéo</span></span></a>
+      <a class="video" href="https://www.instagram.com/reel/DdiK21fPHL2/" target="_blank" rel="noopener" data-video="../assets/videos/ig-video-comparatif.mp4"><span class="play" aria-hidden="true"></span><img class="mini" src="../assets/ig-video-comparatif.png" alt="Vidéo : Link the other indexed pages to that target page">
+        <span class="txt"><b>Des pages comparatives qui rapportent 9 fois plus</b><span>Et le maillage interne vers la page cible</span><span class="voir"><img src="../assets/logo-instagram.svg" alt="">Lire la vidéo</span></span></a>
+    </div>
+  </div>
+  <p class="pied" data-tw="source">Source : Edward Sturm, Instagram @edward.builds, profil et vidéos, (consulté le 26/09/2026). Recherches et mise en page avec <img src="../assets/logo-claude.svg" alt="">Claude.</p>
+  <div class="num">5 / 5</div>
+  <div class="notes">Pour suivre le sujet, je vous recommande Edward Sturm, consultant SEO américain, suivi par 340 000 personnes sur Instagram. C'est en anglais, mais très concret : des vidéos d'une minute, avec des astuces peu connues et les nouveautés de Google dès leur sortie.
+J'en ai choisi trois. La première montre que près de la moitié des citations d'IA viennent de l'introduction d'un texte. La deuxième raconte comment un communiqué de presse à 6 dollars a suffi pour que l'Aperçu IA de Google présente quelqu'un comme le « roi de l'AEO » : c'est puissant, mais aussi fragile. La troisième explique pourquoi les pages comparatives rapportent plus.
+Merci de m'avoir écouté.</div>
+</section>
+<script>
+/* logo IUT sur chaque slide */
+const secs=[...document.querySelectorAll('section')];
+secs.forEach(s=>s.insertAdjacentHTML('afterbegin','<img class="lg-i" data-tw="logo IUT" src="../assets/logo-iut.png" alt="IUT de Lille, site de Roubaix">'));
+
+/* ---------- mode réglage (touche T) ----------
+   Chaque bloc marqué data-tw se règle : position, largeur, hauteur, zoom et cadrage de son image,
+   taille du texte, opacité (voile). Les valeurs validées se collent dans REGLAGES, clé « slide|nom ». */
+const REGLAGES={};
+let perso={}; try{perso=JSON.parse(localStorage.getItem('reglages-geo-4')||'{}')}catch(e){perso={}}
+function sauver(){try{localStorage.setItem('reglages-geo-4',JSON.stringify(perso))}catch(e){}}
+const panneau=document.getElementById('panneau');
+let vise=null, i=0;
+const enReglage=()=>document.body.classList.contains('reglage');
+const cle=el=>el.closest('section').id+'|'+el.dataset.tw;
+const imgDe=el=>{if(el.tagName==='IMG')return el;
+  const c=[...el.querySelectorAll('img')].filter(m=>m.closest('[data-tw]')===el);
+  return c.sort((a,b)=>b.offsetWidth*b.offsetHeight-a.offsetWidth*a.offsetHeight)[0]||null;};
+let modeCadre=false;
+const tous=[...document.querySelectorAll('[data-tw]')];
+tous.forEach(el=>{el._s0=el.getAttribute('style')||''; const m=imgDe(el); if(m&&m!==el) m._s0=m.getAttribute('style')||'';});
+function valeurs(el){const k=cle(el);return Object.assign({},REGLAGES[k]||{},perso[k]||{});}
+function appliquer(el){
+  el.setAttribute('style',el._s0); const m=imgDe(el); if(m&&m!==el) m.setAttribute('style',m._s0);
+  const v=valeurs(el);
+  if(v.dx||v.dy) el.style.translate=`${v.dx||0}vw ${v.dy||0}vh`;
+  if(v.w!=null) el.style.width=v.w+'vw';
+  if(v.h!=null) el.style.height=v.h+'vh';
+  if(v.fs!=null) el.style.fontSize=v.fs+'vw';
+  if(v.op!=null) el.style.opacity=v.op;
+  if(m){ if(v.z!=null) m.style.scale=v.z;
+    if(v.ox!=null){const p=`${v.ox}% ${v.oy}%`; m.style.objectPosition=p; m.style.transformOrigin=p;}}
+}
+const r2=x=>Math.round(x*100)/100, borne=x=>Math.max(0,Math.min(100,x));
+function lire(el,n){
+  const v=valeurs(el); if(v[n]!=null) return v[n];
+  const m=imgDe(el);
+  if(n==='dx'||n==='dy') return 0;
+  if(n==='w') return r2(el.offsetWidth/innerWidth*100);
+  if(n==='h') return r2(el.offsetHeight/innerHeight*100);
+  if(n==='fs') return r2(parseFloat(getComputedStyle(el).fontSize)/innerWidth*100);
+  if(n==='op') return parseFloat(getComputedStyle(el).opacity);
+  if(n==='z') return m?(parseFloat(getComputedStyle(m).scale)||1):1;
+  if(!m) return 50;
+  const p=getComputedStyle(m).objectPosition.split(' '), q=n==='ox'?p[0]:p[1];
+  return q&&q.includes('%')?parseFloat(q):50;
+}
+function modif(el,ch){const k=cle(el); perso[k]=Object.assign({},perso[k]||{},ch); sauver(); appliquer(el); ecrire();}
+function choisir(el){if(vise)vise.classList.remove('vise'); vise=el; if(el)el.classList.add('vise'); ecrire();}
+function ecrire(){
+  if(!enReglage())return;
+  const els=[...secs[i].querySelectorAll('[data-tw]')];
+  const noms={dx:'x',dy:'y',w:'larg.',h:'haut.',z:'zoom',ox:'cadr.x',oy:'cadr.y',fs:'texte',op:'opac.'};
+  const im=vise&&imgDe(vise);
+  const barre=vise?`<div class="outils-r"><div class="t">Bloc choisi : <b>${vise.dataset.tw}</b></div>`
+    +(im?`<div><span>Zoom image</span><button data-a="z-">−</button><button data-a="z+">+</button></div>
+      <div><span>Cadrer l'image</span><button data-a="cg">←</button><button data-a="cd">→</button><button data-a="ch">↑</button><button data-a="cb">↓</button></div>`
+      :`<div><span>Taille du texte</span><button data-a="z-">−</button><button data-a="z+">+</button></div>`)
+    +`<div><span>Largeur</span><button data-a="l-">−</button><button data-a="l+">+</button><span>Hauteur</span><button data-a="h-">−</button><button data-a="h+">+</button></div>
+      <div><span>Glisser la souris</span><button data-a="mode" class="${modeCadre?'':'on'}">déplace le bloc</button><button data-a="mode" class="${modeCadre?'on':''}">recadre l'image</button></div>
+      <div><button data-a="0">Remettre ce bloc à zéro</button></div></div>`:'';
+  panneau.innerHTML='<b>Réglages · slide '+(i+1)+'</b>'+barre+els.map((el,j)=>{
+    const v=valeurs(el), t=Object.entries(v).map(([a,b])=>(noms[a]||a)+' '+b).join(' · ')||'·';
+    return `<div class="l${el===vise?' vise':''}" data-j="${j}"><span>${el.dataset.tw}</span><span>${t}</span></div>`;}).join('')
+    +'<div class="aide">Clic sur un bloc ou dans cette liste : le choisir · Maj+clic : bloc parent<br>Glisser ou flèches : déplacer · R : glisser pour recadrer l\'image<br>Molette ou + et − : zoom de l\'image (taille du texte s\'il n\'y a pas d\'image)<br>Alt+glisser ou Alt+flèches : cadrer l\'image · Maj+flèches : largeur et hauteur<br>Retour arrière : remettre le bloc à zéro · Échap : désélectionner<br>C : copier tous les réglages · P : panneau à gauche ou à droite · T : sortir</div>';
+  panneau.querySelectorAll('.l').forEach(r=>r.onclick=()=>choisir(els[+r.dataset.j]));
+  panneau.querySelectorAll('button[data-a]').forEach(b=>b.onclick=()=>action(b.dataset.a));
+}
+function zoomer(s){
+  if(!vise)return;
+  if(vise.hasAttribute('data-op')) modif(vise,{op:Math.max(0,Math.min(1,r2(lire(vise,'op')+.05*s)))});
+  else if(imgDe(vise)) modif(vise,{z:Math.max(.2,Math.round(lire(vise,'z')*(s>0?1.04:1/1.04)*1000)/1000)});
+  else modif(vise,{fs:Math.round(lire(vise,'fs')*(s>0?1.04:1/1.04)*1000)/1000});
+}
+function cadrer(n,d){const o=n==='ox'?'oy':'ox'; modif(vise,{[n]:borne(lire(vise,n)+d),[o]:lire(vise,o)});}
+function action(a){
+  if(!vise)return;
+  const t={'z+':()=>zoomer(1),'z-':()=>zoomer(-1),cg:()=>cadrer('ox',-3),cd:()=>cadrer('ox',3),ch:()=>cadrer('oy',-3),cb:()=>cadrer('oy',3),
+    'l+':()=>modif(vise,{w:r2(lire(vise,'w')+1)}),'l-':()=>modif(vise,{w:r2(lire(vise,'w')-1)}),
+    'h+':()=>modif(vise,{h:r2(lire(vise,'h')+1)}),'h-':()=>modif(vise,{h:r2(lire(vise,'h')-1)}),
+    mode:()=>{modeCadre=!modeCadre;ecrire();},'0':()=>{delete perso[cle(vise)];sauver();appliquer(vise);ecrire();}};
+  if(t[a])t[a]();
+}
+addEventListener('wheel',e=>{
+  if(!enReglage()||!vise||!vise.contains(e.target))return;
+  e.preventDefault(); zoomer(e.deltaY<0?1:-1);
+},{passive:false});
+function suivre(f){const mv=e=>f(e),up=()=>{removeEventListener('mousemove',mv);removeEventListener('mouseup',up)};addEventListener('mousemove',mv);addEventListener('mouseup',up);}
+addEventListener('mousedown',ev=>{
+  if(!enReglage()||ev.target.closest('.panneau'))return;
+  let el=ev.target.closest('[data-tw]'); if(!el)return;
+  if(ev.shiftKey){const p=el.parentElement&&el.parentElement.closest('[data-tw]'); if(p) el=p;}
+  ev.preventDefault(); choisir(el);
+  const x0=ev.clientX,y0=ev.clientY;
+  if((ev.altKey||modeCadre)&&imgDe(el)){
+    const ox0=lire(el,'ox'),oy0=lire(el,'oy'),r=el.getBoundingClientRect();
+    suivre(e=>modif(el,{ox:r2(borne(ox0-(e.clientX-x0)/r.width*100)),oy:r2(borne(oy0-(e.clientY-y0)/r.height*100))})); return;
+  }
+  const dx0=lire(el,'dx'),dy0=lire(el,'dy');
+  suivre(e=>modif(el,{dx:r2(dx0+(e.clientX-x0)/innerWidth*100),dy:r2(dy0+(e.clientY-y0)/innerHeight*100)}));
+});
+addEventListener('click',e=>{if(enReglage()&&!e.target.closest('.panneau')&&e.target.closest('[data-tw]'))e.preventDefault();},true);
+function copier(t){
+  if(navigator.clipboard&&navigator.clipboard.writeText) return navigator.clipboard.writeText(t).catch(()=>vieux(t));
+  vieux(t);
+}
+function vieux(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();}
+tous.forEach(el=>{if(Object.keys(valeurs(el)).length) appliquer(el);});
+
+/* ---------- notes orateur modifiables (touche N) : clic pour écrire, Échap pour sortir, C pour tout copier ---------- */
+const CLE_N='notes-geo-4-fr';
+let notesPerso={}; try{notesPerso=JSON.parse(localStorage.getItem(CLE_N)||'{}')}catch(e){notesPerso={}}
+const sauverNotes=()=>{try{localStorage.setItem(CLE_N,JSON.stringify(notesPerso))}catch(e){}};
+const notesEls=[...document.querySelectorAll('section .notes')];
+notesEls.forEach(n=>{const id=n.closest('section').id; n._orig=n.innerText.trim(); n.contentEditable='true'; n.spellcheck=true; n.dataset.aide='Clic pour modifier · Échap pour sortir · C pour copier';
+  if(notesPerso[id]!=null){ if(notesPerso[id]===n._orig) delete notesPerso[id]; else n.innerText=notesPerso[id]; }
+  n.addEventListener('input',()=>{const t=n.innerText.trim(); if(t===n._orig) delete notesPerso[id]; else notesPerso[id]=t; sauverNotes();});
+});
+sauverNotes();
+const toast=document.createElement('div'); toast.className='toast'; document.body.appendChild(toast);
+function prevenir(t){toast.textContent=t; toast.classList.add('on'); clearTimeout(prevenir._t); prevenir._t=setTimeout(()=>toast.classList.remove('on'),2200);}
+function toutCopier(){
+  const tout=Object.assign({},REGLAGES); for(const c in perso) tout[c]=Object.assign({},REGLAGES[c]||{},perso[c]);
+  notesEls.forEach(n=>{const sec=n.closest('section'), id=sec.id; if(notesPerso[id]!=null) tout['notes|'+id+' (slide '+(secs.indexOf(sec)+1)+')']=notesPerso[id];});
+  copier(JSON.stringify(tout,null,1));
+  const nb=Object.keys(notesPerso).length;
+  prevenir('Copié : réglages'+(nb?' + '+nb+' note(s) modifiée(s)':''));
+}
+
+/* ---------- lecteur vidéo : clic sur une vidéo = lecture en grand du fichier téléchargé, Échap ou clic à côté pour fermer ---------- */
+const lecteur=document.getElementById('lecteur'), lv=lecteur.querySelector('video');
+const lecteurOuvert=()=>lecteur.classList.contains('on');
+function fermerLecteur(){lv.pause(); lv.removeAttribute('src'); lv.load(); lecteur.classList.remove('on'); lecteur.setAttribute('aria-hidden','true');}
+document.querySelectorAll('.video[data-video]').forEach(a=>a.addEventListener('click',e=>{
+  if(document.body.classList.contains('reglage')) return;
+  e.preventDefault(); lv.src=a.dataset.video; const m=a.querySelector('img.mini'); if(m) lv.poster=m.src;
+  lecteur.classList.add('on'); lecteur.setAttribute('aria-hidden','false'); lv.play().catch(()=>{});
+}));
+lecteur.addEventListener('click',e=>{if(e.target===lecteur||e.target.classList.contains('fermer')) fermerLecteur();});
+addEventListener('keydown',e=>{
+  if(!lecteurOuvert()) return;
+  e.stopImmediatePropagation();
+  if(e.key==='Escape'){e.preventDefault(); fermerLecteur();}
+  else if(e.key===' '){e.preventDefault(); lv.paused?lv.play():lv.pause();}
+},true);
+
+/* ---------- navigation ---------- */
+const liens=[...document.querySelectorAll('.rail .liens a[href^="#s"]')];
+const barre=document.querySelector('.rail .bar i');
+function maj(){
+  secs.forEach((s,k)=>s.classList.toggle('ici',k===i));
+  liens.forEach((a,k)=>a.classList.toggle('on',k===i));
+  if(barre) barre.style.height=((i+1)/secs.length*100)+'%';
+  ecrire();
+}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){i=secs.indexOf(e.target);maj();}})},{threshold:.6});
+secs.forEach(s=>io.observe(s));
+maj();
+function aller(n){i=Math.max(0,Math.min(secs.length-1,n));secs[i].scrollIntoView({behavior:'smooth'});}
+addEventListener('keydown',e=>{
+  const k=e.key;
+  if(document.activeElement&&document.activeElement.classList&&document.activeElement.classList.contains('notes')){ if(k==='Escape'){e.preventDefault();document.activeElement.blur();} return; }
+  if(document.activeElement&&document.activeElement.isContentEditable)return;
+  if(enReglage()&&vise){
+    if(k.startsWith('Arrow')){
+      e.preventDefault();
+      const hz=k==='ArrowLeft'||k==='ArrowRight', s=(k==='ArrowRight'||k==='ArrowDown')?1:-1;
+      if(e.altKey&&imgDe(vise)){const n=hz?'ox':'oy',o=hz?'oy':'ox'; modif(vise,{[n]:borne(lire(vise,n)+2*s),[o]:lire(vise,o)});}
+      else if(e.shiftKey){ if(hz) modif(vise,{w:r2(lire(vise,'w')+.5*s)}); else modif(vise,{h:r2(lire(vise,'h')+.5*s)}); }
+      else {const n=hz?'dx':'dy'; modif(vise,{[n]:r2(lire(vise,n)+.25*s)});}
+      return;
+    }
+    if(k==='+'||k==='='||k==='-'||k==='_'){e.preventDefault(); zoomer((k==='+'||k==='=')?1:-1); return;}
+    if(k==='r'||k==='R'){modeCadre=!modeCadre; ecrire(); return;}
+    if(k==='Backspace'||k==='Delete'){e.preventDefault(); delete perso[cle(vise)]; sauver(); appliquer(vise); ecrire(); return;}
+    if(k==='Escape'){choisir(null);return;}
+  }
+  if(k==='t'||k==='T'){document.body.classList.toggle('reglage'); if(!enReglage())choisir(null); else ecrire(); return;}
+  if((k==='c'||k==='C')&&!e.metaKey&&!e.ctrlKey){toutCopier(); const a=panneau.querySelector('.aide'); if(enReglage()&&a) a.textContent='Réglages et notes copiés : colle-les dans la conversation.'; return;}
+  if((k==='p'||k==='P')&&enReglage()){panneau.classList.toggle('gauche');return;}
+  if(k==='n'||k==='N'){document.body.classList.toggle('notesvues');return;}
+  if(['ArrowDown','PageDown',' '].includes(k)){e.preventDefault();aller(i+1);}
+  else if(['ArrowUp','PageUp'].includes(k)){e.preventDefault();aller(i-1);}
+  else if(k==='Home'){e.preventDefault();aller(0);}
+  else if(k==='End'){e.preventDefault();aller(secs.length-1);}
+});
+</script>
+</body>
+</html>
