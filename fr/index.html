@@ -127,6 +127,11 @@ h2{margin-bottom:5vh}
 .cartes3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.1vw}
 .c3{border-radius:var(--r);padding:1.8vh 1.3vw;display:flex;flex-direction:column;gap:.9vh;background:var(--carte);border:1px solid var(--filet)}
 .c3 .haut{display:flex;justify-content:space-between;align-items:flex-start;gap:.8vw}
+.c3 .gauche{display:flex;align-items:center;gap:.8vw}
+.c3 .annee{font-size:var(--fs-sm);font-weight:600;white-space:nowrap;border-radius:999px;padding:.3em .85em;background:var(--encre);color:#fff}
+.c3.noir .annee{background:#fff;color:var(--encre)}
+.c3.bleu .annee{background:#fff;color:var(--bleu)}
+.c3.bleu .haut .lg-row{display:grid;grid-template-columns:repeat(2,auto);gap:.3em}
 .c3 .sigle{font-size:var(--fs-titre);font-weight:600;letter-spacing:-.04em;line-height:1}
 .c3 .nom{font-size:var(--fs-sm);font-weight:300;white-space:nowrap;opacity:.85}
 .c3 .dit{font-size:var(--fs-md);font-weight:600;line-height:1.35}
@@ -317,19 +322,19 @@ En cinq slides : ce que ces sigles veulent dire, pourquoi c'est maintenant, com
   <div class="s2v">
     <div class="cartes3" data-tw="définitions">
       <div class="c3">
-        <div class="haut"><span class="sigle">SEO</span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
+        <div class="haut"><span class="gauche"><span class="sigle">SEO</span><span class="annee">depuis 1997</span></span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
         <span class="nom">Search Engine Optimization</span>
         <span class="dit">« Être bien classé dans les liens de Google. »</span>
         <div class="bas"><span class="gagne">On gagne : <b>un clic</b></span></div>
       </div>
       <div class="c3 noir">
-        <div class="haut"><span class="sigle">AEO</span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
+        <div class="haut"><span class="gauche"><span class="sigle">AEO</span><span class="annee">depuis 2014</span></span><span class="lg-row"><img src="../assets/logo-google-g.svg" alt="Google"></span></div>
         <span class="nom">Answer Engine Optimization</span>
         <span class="dit">« Être LA réponse affichée : Aperçu IA, extrait, assistant vocal. »</span>
         <div class="bas"><span class="gagne">On gagne : <b>la réponse sans clic</b></span></div>
       </div>
       <div class="c3 bleu">
-        <div class="haut"><span class="sigle">GEO</span><span class="lg-row"><img src="../assets/logo-chatgpt.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"><img src="../assets/logo-claude.svg" alt="Claude"><img src="../assets/logo-perplexity-icone.svg" alt="Perplexity"></span></div>
+        <div class="haut"><span class="gauche"><span class="sigle">GEO</span><span class="annee">depuis 2023</span></span><span class="lg-row"><img src="../assets/logo-chatgpt.svg" alt="ChatGPT"><img src="../assets/logo-gemini.svg" alt="Gemini"><img src="../assets/logo-claude.svg" alt="Claude"><img src="../assets/logo-perplexity-icone.svg" alt="Perplexity"></span></div>
         <span class="nom">Generative Engine Optimization</span>
         <span class="dit">« Être cité ou recommandé par une IA. »</span>
         <div class="bas"><span class="gagne">On gagne : <b>une mention, un lien</b></span></div>
@@ -349,12 +354,13 @@ En cinq slides : ce que ces sigles veulent dire, pourquoi c'est maintenant, com
       <div class="preuve" data-tw="exemple GEO"><img src="../assets/preuves/perplexity-geo.png" alt="Perplexity répond à « c'est quoi le GEO » et cite ses sources, encadrées en rouge"><span class="zoom" style="left:29%;top:52%;width:34%;aspect-ratio:128/19;background-image:url(../assets/preuves/perplexity-geo.png);background-size:603.1% auto;background-position:75.77% 47.76%"></span><span class="chip bleu">GEO : l'IA cite ses sources</span></div>
     </div>
   </div>
-  <p class="pied" data-tw="source">Sources : Wikipédia, « Generative engine optimization » ; Frédéric Gonzalo ; Google et Perplexity, recherche « c'est quoi le GEO en référencement », (consulté le 26/09/2026)</p>
+  <p class="pied" data-tw="source">Sources : Wikipédia (SEO, GEO) ; Google, blog (extraits optimisés, 2014) ; Princeton (GEO, 2023) ; Frédéric Gonzalo ; recherches Google et Perplexity, (consulté le 27/09/2026)</p>
   <div class="num">2 / 5</div>
   <div class="notes">Est-ce que quelqu'un a déjà entendu parler du GEO ?
 Il y a trois sigles à bien distinguer. Le SEO, c'est ce qu'on voit en cours : être bien classé dans les liens de Google, pour obtenir un clic.
 L'AEO, pour Answer Engine Optimization, c'est devenir la réponse elle-même : l'Aperçu IA, l'extrait en haut de page, la réponse d'un assistant vocal. Sur la capture de gauche, Google répond directement à « c'est quoi le GEO », avant tous les liens.
 Le GEO, pour Generative Engine Optimization, c'est être cité ou recommandé par une IA comme ChatGPT ou Perplexity. À droite, Perplexity écrit sa réponse et cite ses sources, encadrées en rouge. Pour une marque, l'objectif est d'être l'une de ces sources.
+Et ce n'est pas une mode passagère. Le SEO existe depuis 1997. Depuis 2014, Google affiche directement la réponse en haut de la page, c'est le début de l'AEO. Dès 2015, Google utilise une IA, RankBrain, pour classer ses résultats. Et le terme GEO est né fin 2023, dans une étude de l'université de Princeton.
 On entend aussi AIO, LLMO ou AI SEO : ce sont des noms voisins, et en 2026 il n'existe pas encore de définition officielle qui les sépare.
 Voyons maintenant pourquoi ça compte déjà.</div>
 </section>
